@@ -6,6 +6,7 @@ export default {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
         futura: ['Futura', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
     },
   },
