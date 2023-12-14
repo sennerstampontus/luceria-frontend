@@ -5,6 +5,7 @@
       <MobileNavbar />
     </template>
   </HeaderComponent>
+
   <router-view />
 </template>
 <script lang="ts">
