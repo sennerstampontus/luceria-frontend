@@ -8,6 +8,15 @@ export default {
         futura: ['Futura', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
       },
+      colors: {
+        'primary-blue': '#2F6783',
+        'primary-blue-dark': '#0F354C',
+        'luce-white': '#fbfafa',
+      },
+      container: {
+        center: true,
+        padding: '2rem',
+      },
     },
   },
   plugins: [],

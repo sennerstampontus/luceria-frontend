@@ -1,4 +1,4 @@
-<template><UnderConstruction />></template>
+<template></template>
 
 <script lang="ts">
 import UnderConstruction from '@/components/UnderConstruction.vue';
