@@ -1,18 +1,45 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import HomeView from '../views/HomeView.vue'; // Example view
 
+const ROUTES = {
+  HOME: {
+    path: '/',
+    name: 'Home',
+  },
+  SERVICES: {
+    path: '/tjanster',
+    name: 'Tjänster',
+  },
+};
+
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    name: 'HomeView',
+    path: ROUTES.HOME.path,
+    name: ROUTES.HOME.name,
     component: HomeView,
   },
   // Add other routes as needed
-  // {
-  //   path: '/about',
-  //   name: 'About',
-  //   component: () => import('../views/About.vue') // Lazy-loaded route
-  // }
+  {
+    path: ROUTES.SERVICES.path,
+    name: ROUTES.SERVICES.name,
+    component: () => import('@/views/ServicesView.vue'), // Lazy-loaded route
+    children: [
+      {
+        path: '/tjanster',
+        redirect: '/tjanster/cvgranskning',
+      },
+      {
+        path: 'cvgranskning',
+        name: 'CVReview',
+        component: () => import('@/views/CVReviewView.vue'),
+      },
+      {
+        path: 'testintervju',
+        name: 'TestInterview',
+        component: () => import('@/views/TestInterviewView.vue'),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

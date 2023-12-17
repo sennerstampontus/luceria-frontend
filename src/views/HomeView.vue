@@ -1,15 +1,16 @@
 <template>
   <div class="container py-8">
     <HeroSection />
-    <div id="white-space" class="h-24"></div>
+    <div id="white-space" class="h-12"></div>
   </div>
   <div
     class="py-4 text-2xl font-semibold text-center border-b-2 text-primary-blue"
   >
-    <h2>Tjänster</h2>
+    <h2 id="tjanster">Tjänster</h2>
   </div>
   <div
     class="w-full p-3 on-hover bg-primary-blue h-min hover:bg-primary-blue-dark"
+    @click="$router.push('/cvgranskning')"
   >
     <ServiceCard :title="content[0].title" :content="content[0].content" />
   </div>
@@ -17,6 +18,7 @@
     class="w-full p-3 on-hover h-min hover:bg-primary-blue-dark"
     @mouseover="onmouseover = true"
     @mouseleave="onmouseover = false"
+    @click="$router.push('/testintervju')"
   >
     <ServiceCard
       :icon="InterviewIcon"
@@ -36,7 +38,7 @@ import ServiceCard from '@/components/cards/ServiceCard.vue';
 import ServiceButton from '@/components/buttons/ServiceButton.vue';
 import CvIcon from '@/_icons/CvIcon.vue';
 import InterviewIcon from '@/_icons/InterviewIcon.vue';
-import { defineComponent } from 'vue';
+import { computed, defineComponent, ref } from 'vue';
 export default defineComponent({
   name: 'HomeView',
   components: {
@@ -45,32 +47,39 @@ export default defineComponent({
     ServiceButton,
   },
 
-  computed: {
-    isHover() {
+  setup() {
+    //REFS
+    const onmouseover = ref(false);
+
+    //CONSTANTS
+    const content = [
+      {
+        title: 'CV Granskning',
+        content:
+          'Har du ett relevant CV för tjänsten du söker? Har du ett CV som är lätt att förstå sig på? Är ditt CV attraktivt för rekryteraren?',
+      },
+      {
+        title: 'Intervjuer',
+        content:
+          'Ska du snart på intervju och känner är lite osäker? Boka din testintervju här!',
+      },
+    ];
+
+    //COMPUTED
+    const isHover = computed(() => {
       let state;
       setTimeout(() => {
-        state = this.onmouseover;
+        state = onmouseover.value;
       }, 2000);
       return state;
-    },
-  },
-  data() {
+    });
+
     return {
       CvIcon,
       InterviewIcon,
-      content: [
-        {
-          title: 'CV Granskning',
-          content:
-            'Har du ett relevant CV för tjänsten du söker? Har du ett CV som är lätt att förstå sig på? Är ditt CV attraktivt för rekryteraren?',
-        },
-        {
-          title: 'Intervjuer',
-          content:
-            'Ska du snart på intervju och känner är lite osäker? Boka din testintervju här!',
-        },
-      ],
-      onmouseover: false,
+      content,
+      onmouseover,
+      isHover,
     };
   },
 });

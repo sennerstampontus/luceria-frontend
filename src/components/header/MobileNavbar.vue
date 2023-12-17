@@ -20,7 +20,7 @@
         :menu-items="[
           {
             name: 'Tjänster',
-            link: '#tjanster',
+            link: '/tjanster',
           },
           {
             name: 'Om oss',
@@ -45,21 +45,24 @@
 
 <script lang="ts">
 import MenuContent from './menu/MenuContent.vue';
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 export default defineComponent({
   name: 'MobileNavbar',
-  components: {
-    MenuContent,
-  },
-  data() {
+  setup() {
+    // REFS
+    const isMenuOpen = ref(false);
+
+    //METHODS
+    const handleChange = () => {
+      isMenuOpen.value = !isMenuOpen.value;
+    };
     return {
-      isMenuOpen: false,
+      isMenuOpen,
+      handleChange,
     };
   },
-  methods: {
-    handleChange() {
-      this.isMenuOpen = !this.isMenuOpen;
-    },
+  components: {
+    MenuContent,
   },
 });
 </script>
