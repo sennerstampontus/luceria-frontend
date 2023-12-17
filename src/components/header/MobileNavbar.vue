@@ -26,6 +26,11 @@
             link: '#kontakt',
           },
         ]"
+        @menu-state="
+          (e: boolean) => {
+            isMenuOpen = e;
+          }
+        "
       />
     </div>
   </div>

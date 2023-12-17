@@ -1,7 +1,13 @@
 <template>
   <HeaderComponent>
     <template #content>
-      <img src="@/assets/luceria-logo.svg" alt="logo" class="h-[65px] w-auto" />
+      <RouterLink to="/">
+        <img
+          src="@/assets/luceria-logo.svg"
+          alt="logo"
+          class="h-[65px] w-auto"
+        />
+      </RouterLink>
       <MobileNavbar />
     </template>
   </HeaderComponent>

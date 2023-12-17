@@ -6,13 +6,19 @@
     <li
       v-for="(item, index) in menuItems"
       :key="item.name"
+      :to="item.link"
+      @click="$emit('menuState', !isMenuOpen)"
       :class="[
         'p-3 min-w-[174px] border-b-[1px] border-b-gray-400 hover:bg-primary-blue-dark',
         index === 0 ? 'rounded-t-md' : '',
-        index === menuItems.length - 1 ? 'rounded-b-md' : '',
+        index === menuItems.length - 1
+          ? 'rounded-b-md border-b-transparent'
+          : '',
       ]"
     >
-      <a :href="item.link">{{ item.name }}</a>
+      <RouterLink :to="item.link">
+        {{ item.name }}
+      </RouterLink>
     </li>
   </ul>
 </template>
@@ -27,6 +33,7 @@ type MenuItem = {
 
 export default defineComponent({
   name: 'MenuContent',
+  emits: ['menuState'],
 
   props: {
     menuItems: {
