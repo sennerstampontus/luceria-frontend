@@ -1,7 +1,7 @@
 <template>
   <ul
     v-if="isMenuOpen"
-    class="absolute w-auto text-white rounded-md top-10 right-8 bg-primary-blue"
+    class="absolute w-auto text-white rounded-md top-10 right-8 bg-primary-blue z-[999]"
   >
     <li
       v-for="(item, index) in menuItems"
