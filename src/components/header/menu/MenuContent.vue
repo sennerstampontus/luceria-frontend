@@ -1,13 +1,13 @@
 <template>
   <ul
     v-if="isMenuOpen"
-    class="absolute top-10 right-8 w-auto w-max-[50px] bg-primary-blue text-white rounded-md"
+    class="absolute w-auto text-white rounded-md top-10 right-8 bg-primary-blue"
   >
     <li
       v-for="(item, index) in menuItems"
       :key="item.name"
       :class="[
-        'p-3 min-w-[124px] border-b-[1px] border-b-white hover:bg-primary-blue-dark',
+        'p-3 min-w-[174px] border-b-[1px] border-b-gray-400 hover:bg-primary-blue-dark',
         index === 0 ? 'rounded-t-md' : '',
         index === menuItems.length - 1 ? 'rounded-b-md' : '',
       ]"

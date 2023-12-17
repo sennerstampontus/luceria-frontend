@@ -1,7 +1,7 @@
 <template>
   <div id="header" class="container">
     <div
-      class="w-full min-h-[60px] max-h-[78px] border-b-[1px] py-5 border-primary-blue flex justify-between items-center"
+      class="w-full min-h-[80px] max-h-[90px] border-b-[1px] py-5 border-primary-blue flex justify-between items-center"
     >
       <slot name="content" />
     </div>
