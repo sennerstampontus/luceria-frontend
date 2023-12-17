@@ -13,17 +13,20 @@
   </HeaderComponent>
 
   <router-view />
+  <FooterSection />
 </template>
 <script lang="ts">
 import MobileNavbar from '@/components/header/MobileNavbar.vue';
 import { defineComponent } from 'vue';
 import HeaderComponent from './components/header/HeaderComponent.vue';
+import FooterSection from './components/sections/FooterSection.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     MobileNavbar,
     HeaderComponent,
+    FooterSection,
   },
 
   computed: {

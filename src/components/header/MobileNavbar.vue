@@ -3,7 +3,12 @@
     <div id="menu-button">
       <div class="scale-50">
         <label class="bar" for="check">
-          <input type="checkbox" id="check" @change="handleChange" />
+          <input
+            ref="menu-checkbox"
+            type="checkbox"
+            id="check"
+            @change="handleChange"
+          />
 
           <span class="top"></span>
           <span class="middle"></span>
@@ -28,6 +33,8 @@
         ]"
         @menu-state="
           (e: boolean) => {
+            const el = $refs['menu-checkbox'] as HTMLInputElement;
+            el.checked = e;
             isMenuOpen = e;
           }
         "
