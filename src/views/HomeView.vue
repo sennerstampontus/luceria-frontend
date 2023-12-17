@@ -1,12 +1,16 @@
-<template></template>
+<template>
+  <div class="container py-4">
+    <HeroSection />
+  </div>
+</template>
 
 <script lang="ts">
-import UnderConstruction from '@/components/UnderConstruction.vue';
+import HeroSection from '@/components/sections/HeroSection.vue';
 import { defineComponent } from 'vue';
 export default defineComponent({
   name: 'HomeView',
   components: {
-    UnderConstruction,
+    HeroSection,
   },
 });
 </script>
