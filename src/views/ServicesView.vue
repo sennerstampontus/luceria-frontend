@@ -1,8 +1,7 @@
 <template>
   <div class="container">
-    <h1 class="py-3 text-2xl text-center border-b-2">Tjänster</h1>
+    <h1 class="py-3 text-lg text-center border-b-2">Tjänster</h1>
     <SliderComponent />
-
     <RouterView />
   </div>
 </template>

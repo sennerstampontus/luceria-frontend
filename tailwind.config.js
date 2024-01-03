@@ -12,6 +12,7 @@ export default {
         'primary-blue': '#2F6783',
         'primary-blue-dark': '#0F354C',
         'luce-white': '#fbfafa',
+        'rect-blue': '#2F6783',
       },
       container: {
         center: true,

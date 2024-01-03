@@ -52,9 +52,9 @@ export default defineComponent({
   },
 });
 </script>
-<!-- <style lang="scss" scoped>
+<style lang="scss" scoped>
 .on-hover:hover {
   transition: all 0.2s ease-in-out;
   color: white;
 }
-</style> -->
+</style>
