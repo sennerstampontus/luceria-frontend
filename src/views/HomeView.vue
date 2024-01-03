@@ -10,7 +10,7 @@
   </div>
   <div
     class="w-full p-3 on-hover bg-primary-blue h-min hover:bg-primary-blue-dark"
-    @click="$router.push('/cvgranskning')"
+    @click="$router.push('/tjanster/cvgranskning')"
   >
     <ServiceCard :title="content[0].title" :content="content[0].content" />
   </div>
@@ -18,7 +18,7 @@
     class="w-full p-3 on-hover h-min hover:bg-primary-blue-dark"
     @mouseover="onmouseover = true"
     @mouseleave="onmouseover = false"
-    @click="$router.push('/testintervju')"
+    @click="$router.push('/tjanster/testintervju')"
   >
     <ServiceCard
       :icon="InterviewIcon"

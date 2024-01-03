@@ -19,6 +19,10 @@
         :is-menu-open="isMenuOpen"
         :menu-items="[
           {
+            name: 'Hem',
+            link: '/',
+          },
+          {
             name: 'Tjänster',
             link: '/tjanster',
           },
