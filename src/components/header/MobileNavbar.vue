@@ -28,11 +28,11 @@
           },
           {
             name: 'Om oss',
-            link: '#om-oss',
+            link: '/om-oss',
           },
           {
             name: 'Kontakt',
-            link: '#kontakt',
+            link: '/kontakt',
           },
         ]"
         @menu-state="

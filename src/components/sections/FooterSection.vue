@@ -1,28 +1,30 @@
 <template>
-  <div class="container w-full py-4 h-max bg-primary-blue-dark">
-    <div class="flex justify-between text-white">
-      <div id="footer-services" class="py-5">
-        <h3 class="font-semibold">Tjänster</h3>
-        <p>CV Granskning</p>
-        <p class="py-1">Intervjuer</p>
+  <div class="relative bottom-0 w-full mt-40">
+    <div class="container w-full py-4 h-max bg-primary-blue-dark">
+      <div class="flex justify-between text-white">
+        <div id="footer-services" class="py-5">
+          <h3 class="font-semibold">Tjänster</h3>
+          <p>CV Granskning</p>
+          <p class="py-1">Intervjuer</p>
+        </div>
+        <div id="footer-about" class="py-5">
+          <h3 class="font-semibold">Om oss</h3>
+          <p>Kort om Luceria</p>
+          <p class="py-1">Historian</p>
+        </div>
+        <div id="footer-contact" class="py-5">
+          <h3 class="font-semibold">Kontakt</h3>
+          <p>Kontakta oss</p>
+          <p class="py-1">FAQ</p>
+        </div>
       </div>
-      <div id="footer-about" class="py-5">
-        <h3 class="font-semibold">Om oss</h3>
-        <p>Kort om Luceria</p>
-        <p class="py-1">Historian</p>
+      <div class="logo-with-lines">
+        <img
+          src="@/assets/luceria-logo.svg"
+          alt="luceria-svg-logo"
+          class="w-[150px] bg-white logo"
+        />
       </div>
-      <div id="footer-contact" class="py-5">
-        <h3 class="font-semibold">Kontakt</h3>
-        <p>Kontakta oss</p>
-        <p class="py-1">FAQ</p>
-      </div>
-    </div>
-    <div class="logo-with-lines">
-      <img
-        src="@/assets/luceria-logo.svg"
-        alt="luceria-svg-logo"
-        class="w-[150px] bg-white logo"
-      />
     </div>
   </div>
 </template>

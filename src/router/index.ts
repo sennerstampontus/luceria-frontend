@@ -10,6 +10,14 @@ const ROUTES = {
     path: '/tjanster',
     name: 'Tjänster',
   },
+  ABOUT: {
+    path: '/om-oss',
+    name: 'Om oss',
+  },
+  CONTACT: {
+    path: '/kontakt',
+    name: 'Kontakt',
+  },
 };
 
 const routes: Array<RouteRecordRaw> = [
@@ -39,6 +47,16 @@ const routes: Array<RouteRecordRaw> = [
         component: () => import('@/views/TestInterviewView.vue'),
       },
     ],
+  },
+  {
+    path: ROUTES.ABOUT.path,
+    name: ROUTES.ABOUT.name,
+    component: () => import('@/views/AboutView.vue'),
+  },
+  {
+    path: ROUTES.CONTACT.path,
+    name: ROUTES.CONTACT.name,
+    component: () => import('@/views/ContactView.vue'),
   },
 ];
 
