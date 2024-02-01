@@ -1,6 +1,11 @@
 <template>
   <a :href="linkTo">
-    <button class="px-4 py-2 bg-white rounded-2xl">
+    <button
+      :class="[
+        'px-4 py-2 rounded-2xl md:py-3 md:px-9',
+        `bg-${background} text-${textColor}`,
+      ]"
+    >
       {{ buttonText }}
     </button>
   </a>
@@ -18,6 +23,16 @@ export default defineComponent({
     linkTo: {
       type: String,
       required: true,
+    },
+    background: {
+      type: String,
+      required: false,
+      default: 'white',
+    },
+    textColor: {
+      type: String,
+      required: false,
+      default: 'black',
     },
   },
 });

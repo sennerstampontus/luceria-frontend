@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lato:wght@300;400;700&family=Montserrat:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lato:wght@300;400;700&family=Lora:ital,wght@0,400;0,500;0,700;1,400&family=Montserrat:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 /* Importing Futura (assuming local files) */
 @font-face {
@@ -20,6 +20,6 @@ body {
   padding: 0;
   box-sizing: border-box;
   background: #fbfafa;
-  font-family: 'inter', sans-serif;
+  font-family: 'Lora', serif;
   scroll-behavior: smooth;
 }
