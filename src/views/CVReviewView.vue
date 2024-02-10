@@ -29,7 +29,7 @@
           </ul>
         </div>
       </div>
-      <div class="max-h-[150px] rounded-md bg-primary-blue">
+      <div class="max-h-[150px] rounded-md bg-primary-blue hidden md:block">
         <ServiceButton
           :icon="CvIcon"
           link-to="/tjanster"
@@ -38,7 +38,7 @@
       </div>
 
       <div>
-        <div>
+        <div class="my-8">
           <h2
             class="container p-2 mt-3 mb-1 text-xl text-center rounded-t-lg text-luce-white art-background"
           >

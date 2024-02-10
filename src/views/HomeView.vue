@@ -37,7 +37,7 @@
     <CVReviewView />
   </div>
   <div class="hidden md:block md:py-5">
-    <CVReviewView />
+    <TestInterviewView />
   </div>
 
   <div class="h-[100px]"></div>
@@ -51,6 +51,7 @@ import CvIcon from '@/_icons/CvIcon.vue';
 import InterviewIcon from '@/_icons/InterviewIcon.vue';
 import { computed, defineComponent, ref } from 'vue';
 import CVReviewView from './CVReviewView.vue';
+import TestInterviewView from './TestInterviewView.vue';
 export default defineComponent({
   name: 'HomeView',
   components: {
@@ -58,6 +59,7 @@ export default defineComponent({
     ServiceCard,
     ServiceButton,
     CVReviewView,
+    TestInterviewView,
   },
 
   setup() {
