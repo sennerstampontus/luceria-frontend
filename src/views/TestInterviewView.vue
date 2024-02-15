@@ -63,7 +63,7 @@
           </ul>
         </div>
       </div>
-      <hr class="my-8" />
+      <hr class="my-8 md:hidden" />
     </div>
 
     <div class="flex items-center justify-center mb-10 md:mb-0 md:hidden">

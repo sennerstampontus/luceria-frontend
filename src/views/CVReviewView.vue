@@ -32,7 +32,7 @@
       <div class="max-h-[150px] rounded-md bg-primary-blue hidden md:block">
         <ServiceButton
           :icon="CvIcon"
-          link-to="/tjanster"
+          link-to="/skicka/cv"
           button-text="Skicka ditt CV här"
         />
       </div>
@@ -63,7 +63,7 @@
         </div>
       </div>
 
-      <hr class="my-8" />
+      <hr class="my-8 md:hidden" />
     </div>
     <div class="flex items-center justify-center mb-10 md:mb-0 md:hidden">
       <div class="w-3/4">
@@ -71,7 +71,7 @@
           :title="'Få hjälp med CVt!'"
           icon-color="#fbfafa"
           class="p-2 px-4 rounded-md bg-rect-blue text-luce-white hover:bg-primary-blue-dark hover:cursor-pointer"
-          @click="$router.push('/tjanster/cvgranskning')"
+          @click="$router.push('/skicka/cv')"
         />
       </div>
     </div>

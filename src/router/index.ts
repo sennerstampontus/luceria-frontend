@@ -18,6 +18,14 @@ const ROUTES = {
     path: '/kontakt',
     name: 'Kontakt',
   },
+  SEND_CV: {
+    path: '/skicka/cv',
+    name: 'Skicka CV',
+  },
+  SEND_INTERVIEW: {
+    path: '/skicka/intervju',
+    name: 'Skicka Intervju',
+  },
 };
 
 const routes: Array<RouteRecordRaw> = [
@@ -57,6 +65,16 @@ const routes: Array<RouteRecordRaw> = [
     path: ROUTES.CONTACT.path,
     name: ROUTES.CONTACT.name,
     component: () => import('@/views/ContactView.vue'),
+  },
+  {
+    path: ROUTES.SEND_CV.path,
+    name: ROUTES.SEND_CV.name,
+    component: () => import('@/views/FormsView.vue'),
+  },
+  {
+    path: ROUTES.SEND_INTERVIEW.path,
+    name: ROUTES.SEND_INTERVIEW.name,
+    component: () => import('@/views/FormsView.vue'),
   },
 ];
 

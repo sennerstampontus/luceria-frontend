@@ -32,8 +32,9 @@
     </div>
   </div>
 
-  <div class="hidden md:block md:bg-luce-gray md:py-5">
+  <div class="hidden md:block md:w-full md:bg-luce-gray md:py-5">
     <div class="logo-with-lines">CV granskning</div>
+
     <CVReviewView />
   </div>
   <div class="hidden md:block md:py-5">
