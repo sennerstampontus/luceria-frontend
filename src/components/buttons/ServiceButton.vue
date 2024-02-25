@@ -4,6 +4,7 @@
     :class="[
       'flex flex-col items-center gap-2 p-4 rounded-md transition-all duration-300',
       `text-${textColor}`,
+      'bg-primary-blue',
       'hover:bg-luce-hover-blue',
     ]"
   >

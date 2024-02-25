@@ -63,6 +63,12 @@
           klar bild av din kompetens.
         </p>
       </div>
+      <ServiceButton
+        :icon="CvIcon"
+        button-text="Skicka CV"
+        link-to="/skicka/cv"
+        class="col-start-2 scale-[0.5] text-[1.5rem]"
+      />
     </div>
     <div
       :class="[
@@ -82,6 +88,7 @@
           dina frågor.
         </p>
       </div>
+
       <div class="w-[150px] justify-self-end">
         <img
           src="@/assets/test-interview.webp"
@@ -89,6 +96,12 @@
           class="rounded-lg"
         />
       </div>
+      <ServiceButton
+        :icon="InterviewIcon"
+        button-text="Boka testintervju"
+        link-to="/skicka/cv"
+        class="col-start-1 scale-[0.5] text-[1.5rem]"
+      />
     </div>
 
     <!-- <CVReviewView />
@@ -101,12 +114,12 @@
     class="my-5 font-sans text-3xl font-semibold text-center logo-with-lines"
   >
     <h2>Om oss</h2>
-    <div
-      ref="ABOUT_REF"
-      :class="['section', isVisable['ABOUT'] ? 'fade-in' : '']"
-    >
-      TEST TEXT
-    </div>
+  </div>
+
+  <div
+    class="my-5 font-sans text-3xl font-semibold text-center bg-luce-gray logo-with-lines"
+  >
+    <h2>Kontakt</h2>
   </div>
 
   <div class="h-[100px]"></div>
