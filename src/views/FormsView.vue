@@ -63,7 +63,6 @@
 
 <script lang="ts">
 import UploadComponent from '@/components/form/utils/UploadComponent.vue';
-import { MailService } from '@sendgrid/mail';
 import axios from 'axios';
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
@@ -137,7 +136,6 @@ export default defineComponent({
         formData.append('email', data.value.email);
         formData.append('message', data.value.type);
         formData.append('file', data.value.file);
-
         await axios
           .post(`${import.meta.env.VITE_API_URL}/send/form`, formData, {
             headers: {
