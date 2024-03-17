@@ -15,6 +15,15 @@
         />
         <span> </span>
       </div>
+      <div class="input-container">
+        <input
+          v-model="data.email"
+          type="email"
+          placeholder="e-postaddress*"
+          required
+        />
+        <span> </span>
+      </div>
       <h2 class="my-3">Vad vill du hjälp med?</h2>
       <hr class="my-6" />
       <div class="container flex-col flex-wrap mb-5 md:flex-row">
@@ -54,6 +63,8 @@
 
 <script lang="ts">
 import UploadComponent from '@/components/form/utils/UploadComponent.vue';
+import { MailService } from '@sendgrid/mail';
+import axios from 'axios';
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
   name: 'FormsView',
@@ -62,6 +73,7 @@ export default defineComponent({
   setup() {
     const data = ref({
       name: '',
+      email: '',
       type: '',
       file: null as File | null,
     });
@@ -97,7 +109,16 @@ export default defineComponent({
       selectedRadio['radio-review'] = false;
     };
 
-    const submitForm = () => {
+    const fileToBase64 = (file: File): Promise<string> => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result as string);
+        reader.onerror = (error) => reject(error);
+      });
+    };
+
+    const submitForm = async () => {
       if (data.value.name === '') {
         error.value = 'Fyll i ditt namn';
       } else if (data.value.type === '') {
@@ -107,9 +128,29 @@ export default defineComponent({
       } else {
         error.value = '';
 
-        console.log(data.value);
+        const base64string = await fileToBase64(data.value.file);
 
-        clearForm();
+        console.log('base64String', base64string);
+
+        const formData = new FormData();
+        formData.append('name', data.value.name);
+        formData.append('email', data.value.email);
+        formData.append('message', data.value.type);
+        formData.append('file', data.value.file);
+
+        await axios
+          .post(`${import.meta.env.VITE_API_URL}/send/form`, formData, {
+            headers: {
+              'Content-Type': 'multipart/form-data',
+            },
+          })
+          .then((res) => {
+            console.log(res);
+            clearForm();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }
     };
 
