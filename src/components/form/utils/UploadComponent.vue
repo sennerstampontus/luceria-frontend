@@ -25,6 +25,7 @@
       type="file"
       id="file"
       accept="application/pdf"
+      name="uploaded-file"
       @change="
         (e: any) => {
           if (e.target) $emit('selected-file', e.target.files[0]);

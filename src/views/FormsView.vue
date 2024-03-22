@@ -63,6 +63,7 @@
 
 <script lang="ts">
 import UploadComponent from '@/components/form/utils/UploadComponent.vue';
+import { getJwtToken } from '@/api/token';
 import axios from 'axios';
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
@@ -108,15 +109,6 @@ export default defineComponent({
       selectedRadio['radio-review'] = false;
     };
 
-    const fileToBase64 = (file: File): Promise<string> => {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result as string);
-        reader.onerror = (error) => reject(error);
-      });
-    };
-
     const submitForm = async () => {
       if (data.value.name === '') {
         error.value = 'Fyll i ditt namn';
@@ -127,19 +119,19 @@ export default defineComponent({
       } else {
         error.value = '';
 
-        const base64string = await fileToBase64(data.value.file);
-
-        console.log('base64String', base64string);
-
         const formData = new FormData();
         formData.append('name', data.value.name);
         formData.append('email', data.value.email);
         formData.append('message', data.value.type);
         formData.append('file', data.value.file);
+
+        const token = await getJwtToken();
+
         await axios
           .post(`${import.meta.env.VITE_API_URL}/send/form`, formData, {
             headers: {
               'Content-Type': 'multipart/form-data',
+              Authorization: `Bearer ${token}`,
             },
           })
           .then((res) => {
