@@ -55,7 +55,14 @@
           @remove-file="data.file = null"
         />
       </div>
-      <button type="submit" class="submit font-lora">Skicka</button>
+      <template v-if="!isSending">
+        <button type="submit" class="submit font-lora">Skicka</button>
+      </template>
+      <template v-else>
+        <button disabled class="submit-spinner font-lora">
+          <LoadingSpinner style="scale: 0.8" />
+        </button>
+      </template>
       <p class="py-6 text-red-400">{{ error }}</p>
     </form>
   </div>
@@ -63,12 +70,13 @@
 
 <script lang="ts">
 import UploadComponent from '@/components/form/utils/UploadComponent.vue';
+import LoadingSpinner from '@/components/utils/LoadingSpinner.vue';
 import { getJwtToken } from '@/api/token';
 import axios from 'axios';
 import { defineComponent, ref } from 'vue';
 export default defineComponent({
   name: 'FormsView',
-  components: { UploadComponent },
+  components: { UploadComponent, LoadingSpinner },
 
   setup() {
     const data = ref({
@@ -78,6 +86,7 @@ export default defineComponent({
       file: null as File | null,
     });
 
+    const isSending = ref(false);
     const error = ref('');
     const selectedRadio = {} as Record<string, boolean>;
 
@@ -104,12 +113,14 @@ export default defineComponent({
     const clearForm = () => {
       data.value.name = '';
       data.value.type = '';
+      data.value.email = '';
       data.value.file = null;
       selectedRadio['radio-design'] = false;
       selectedRadio['radio-review'] = false;
     };
 
     const submitForm = async () => {
+      isSending.value = true;
       if (data.value.name === '') {
         error.value = 'Fyll i ditt namn';
       } else if (data.value.type === '') {
@@ -125,27 +136,36 @@ export default defineComponent({
         formData.append('message', data.value.type);
         formData.append('file', data.value.file);
 
-        const token = await getJwtToken();
+        try {
+          const token = await getJwtToken();
 
-        await axios
-          .post(`${import.meta.env.VITE_API_URL}/send/form`, formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data',
-              Authorization: `Bearer ${token}`,
-            },
-          })
-          .then((res) => {
-            console.log(res);
-            clearForm();
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+          try {
+            await axios.post(
+              `${import.meta.env.VITE_API_URL}/send/form`,
+              formData,
+              {
+                headers: {
+                  'Content-Type': 'multipart/form-data',
+                  Authorization: `Bearer ${token}`,
+                },
+              },
+            );
+          } catch (err) {
+            console.error(err, "Couldn't send the form");
+            isSending.value = false;
+          }
+        } catch (err) {
+          console.error(err, "Couldn't get the token");
+        } finally {
+          clearForm();
+          isSending.value = false;
+        }
       }
     };
 
     return {
       data,
+      isSending,
       error,
       selectedRadio,
       setRadioValue,
@@ -215,6 +235,22 @@ export default defineComponent({
   &:hover {
     background-color: #2f6783;
   }
+}
+
+.submit-spinner {
+  display: flex;
+  justify-content: center;
+
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  background-color: rgb(131, 138, 142);
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  width: 100%;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
 }
 
 .signup-link {
