@@ -103,12 +103,6 @@
         class="col-start-1 scale-[0.5] text-[1.5rem]"
       />
     </div>
-
-    <!-- <CVReviewView />
-  </div>
-  <div class="hidden md:block md:py-5">
-    <TestInterviewView />
-  </div> -->
   </div>
   <div
     class="my-5 font-sans text-3xl font-semibold text-center logo-with-lines"
