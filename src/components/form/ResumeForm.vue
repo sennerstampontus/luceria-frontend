@@ -141,7 +141,7 @@ export default defineComponent({
 
           try {
             await axios.post(
-              `${import.meta.env.VITE_API_URL}/send/form?formType=RESUME`,
+              `${import.meta.env.VITE_API_URL}/send/form/resume`,
               formData,
               {
                 headers: {

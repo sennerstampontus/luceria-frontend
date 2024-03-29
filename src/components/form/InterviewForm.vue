@@ -134,9 +134,7 @@ export default defineComponent({
 
           try {
             await axios.post(
-              `${
-                import.meta.env.VITE_API_URL
-              }/send/form?formType=TESTINTERVIEW`,
+              `${import.meta.env.VITE_API_URL}/send/form/test-interview`,
               form,
               {
                 headers: {
