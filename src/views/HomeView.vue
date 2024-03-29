@@ -99,7 +99,7 @@
       <ServiceButton
         :icon="InterviewIcon"
         button-text="Boka testintervju"
-        link-to="/skicka/cv"
+        link-to="/skicka/intervju"
         class="col-start-1 scale-[0.5] text-[1.5rem]"
       />
     </div>
