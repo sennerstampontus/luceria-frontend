@@ -1,12 +1,12 @@
 <template>
-  <div class="container py-8">
+  <div id="hem" class="container py-8">
     <HeroSection />
     <div id="white-space" class="h-12"></div>
   </div>
   <div
     class="py-4 text-2xl font-semibold text-center border-b-2 text-primary-blue md:border-none md:hidden"
   >
-    <h2 id="tjanster">Tjänster</h2>
+    <h2>Tjänster</h2>
   </div>
   <div class="md:container md:hidden">
     <div
@@ -32,7 +32,7 @@
     </div>
   </div>
 
-  <div class="hidden md:block md:w-full md:bg-luce-gray md:py-5">
+  <div id="tjanster" class="hidden md:block md:w-full md:bg-luce-gray md:py-5">
     <div class="font-sans text-3xl font-semibold logo-with-lines">
       Våra tjänster
     </div>
@@ -113,13 +113,13 @@
   <div
     class="my-5 font-sans text-3xl font-semibold text-center logo-with-lines"
   >
-    <h2>Om oss</h2>
+    <h2 id="om-oss">Om oss</h2>
   </div>
 
   <div
     class="my-5 font-sans text-3xl font-semibold text-center bg-luce-gray logo-with-lines"
   >
-    <h2>Kontakt</h2>
+    <h2 id="kontakt">Kontakt</h2>
   </div>
 
   <div class="h-[100px]"></div>

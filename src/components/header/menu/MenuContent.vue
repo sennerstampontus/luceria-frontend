@@ -42,7 +42,7 @@ export default defineComponent({
     },
     isMenuOpen: {
       type: Boolean,
-      required: true,
+      required: false,
     },
   },
 });
