@@ -2,29 +2,15 @@
   <div class="m-3">
     <h1 class="m-3 text-xl text-center">Kontakta oss</h1>
 
-    <div class="container flex flex-col gap-2 p-4 border-2 rounded-lg">
-      <form
-        ref="submitFormRef"
-        @submit.prevent="
-          () => {
-            console.log('Form submitted');
-          }
-        "
-      >
-        <div v-for="(input, index) in inputListMock" :key="index">
-          <InputComponent
-            :type="input.type"
-            :label="input.label"
-            @input="setFormFields($event)"
-          />
-        </div>
-        <button
-          type="submit"
-          class="w-full p-2 mt-4 text-white rounded-md bg-primary-blue-dark"
-        >
-          Skicka
-        </button>
-      </form>
+    <div
+      class="container flex flex-col gap-2 p-4 border-2 rounded-lg bg-luce-hover-blue text-luce-white"
+    >
+      <p>
+        Vi finns här för dig ifall det är något annat du undrar över som du inte
+        hittar på vår hemsida.
+      </p>
+      <p>Då kan du skicka ett meddelande till oss så återkommer vi.</p>
+      <a href="mailto:info@luceria.se" class="text-blue-200">info@luceria.se</a>
     </div>
   </div>
 </template>

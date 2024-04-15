@@ -73,7 +73,7 @@
           :icon="InterviewIcon"
           icon-color="#fbfafa"
           class="p-2 px-4 rounded-md bg-rect-blue text-luce-white hover:bg-primary-blue-dark hover:cursor-pointer"
-          @click="$router.push('/tjanster/testintervju')"
+          @click="$router.push('/skicka/intervju')"
         />
       </div>
     </div>
