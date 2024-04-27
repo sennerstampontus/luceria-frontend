@@ -11,6 +11,12 @@
       </p>
       <p>Då kan du skicka ett meddelande till oss så återkommer vi.</p>
       <a href="mailto:info@luceria.se" class="text-blue-200">info@luceria.se</a>
+      <p class="text-sm">
+        Telefon:
+        <a href="tel:070 281 45 60" class="font-medium text-blue-200"
+          >070 281 45 60</a
+        >
+      </p>
     </div>
   </div>
 </template>
